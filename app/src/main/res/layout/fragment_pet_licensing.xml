@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
+    android:weightSum="1">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView12"
+        android:layout_below="@+id/textView14"
+        android:layout_marginTop="15dp"
+        android:text="hi4"
+        android:textColor="#424242"
+
+        />
+
+    <Button
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/visit"
+        android:text="Visit"
+        android:textColor="#424242"
+        android:textSize="15sp"
+        android:background="@drawable/button_shape_2"
+        android:shadowRadius="19"
+        android:layout_marginTop="49dp"
+        android:layout_below="@+id/textView16"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView9"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:text="hi1"
+        android:textColor="#8A0808"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView10"
+        android:layout_below="@+id/textView9"
+        android:layout_marginTop="15dp"
+        android:text="hi2"
+        android:textColor="#424242"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView11"
+        android:layout_below="@+id/textView13"
+        android:layout_marginTop="15dp"
+        android:text="hi3"
+        android:textColor="#424242"
+        />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAppearance="?android:attr/textAppearanceSmall"
+           android:text="Small Text"
+           android:id="@+id/textView13"
+           android:layout_below="@+id/textView10"
+           />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAppearance="?android:attr/textAppearanceSmall"
+           android:text="Small Text"
+           android:id="@+id/textView14"
+           android:layout_below="@+id/textView11"
+           />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAppearance="?android:attr/textAppearanceSmall"
+           android:text="Small Text"
+           android:id="@+id/textView15"
+           android:layout_below="@+id/textView12" />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:text="Small Text"
+           android:id="@+id/textView16"
+           android:layout_below="@+id/textView15"
+           android:layout_marginTop="25dp"
+           android:textColor="#424242"
+           />
+
+   </RelativeLayout>
+</FrameLayout>
