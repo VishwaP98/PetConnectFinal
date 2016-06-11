@@ -23,9 +23,12 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
- * Created by t on 5/31/2016.
+ * Created by Vishwaa on 5/31/2016.
+ *
+ * Gets Events from City's website and displays them on the screen
  */
 public class EventsFragment extends Fragment {
+    // Declares variables
     private static SitesAdapter mAdapter;
     private ListView sitesList;
     private ProgressBar bar;
@@ -142,6 +145,13 @@ public class EventsFragment extends Fragment {
 
         }
     }
+    /**
+     * Returns true if checkbox is checked or not
+     * @param pos
+     *          int indicating the event position
+     * @return
+     *         boolean indicating true if checkbox is checked and false if not
+     */
     public static boolean isChecked(int pos)
     {
         if(checked == null || checked.size() == 0)
@@ -161,6 +171,14 @@ public class EventsFragment extends Fragment {
         }
         return true;
     }
+
+    /**
+     * Returns true if event is notified
+     * @param pos
+     *          int indicating the event position
+     * @return
+     *         boolean indicating true if notified and false if not
+     */
     public static boolean isNotified(int pos)
     {
         if(notify == null || notify.size() == 0)
@@ -178,6 +196,14 @@ public class EventsFragment extends Fragment {
         }
         return true;
     }
+    /**
+     * Updates Checked arraylist
+     * @param pos
+     *      int indicating the event position and index where update has
+     *      to be made in arraylist
+     * @param context
+     *       Context of application
+     */
     public static void addCheck(int pos,Context context)
     {
         int checkNo = Integer.parseInt(checked.get(pos));
@@ -186,6 +212,15 @@ public class EventsFragment extends Fragment {
         checked.remove(pos+1);
         EventsFragment.saveArray(context, "checked", "checked_Status",checked);
     }
+
+    /**
+     * Updates Notify arraylist
+     * @param pos
+     *      int indicating the event position and index where update has
+     *      to be made in arraylist
+     * @param context
+     *       Context of application
+     */
     public static void addNotfiy(int pos,Context context)
     {
         int notifyNo = Integer.parseInt(notify.get(pos));
@@ -195,12 +230,32 @@ public class EventsFragment extends Fragment {
         EventsFragment.saveArray(context, "notify", "notify_Status", notify);
 
     }
+
+    /**
+     * Gets the value from shared preferences
+     * @param context
+     *          Context of application
+     * @param key
+     *          String indicating key
+     * @return
+     *        int indicating the value retrieved from shared preferences
+     */
     private static int getValue(Context context, String key)
     {
         SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, context.MODE_PRIVATE);
         int value = settings.getInt(key, 0);
         return value;
     }
+
+    /**
+     * Saving int in sharedPreferences
+     * @param context
+     *      Context of the application
+     * @param key
+     *      String indicating the key
+     * @param value
+     *      String indicating the value
+     */
     private static void setValue(Context context,String key,int value)
     {
         SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, context.MODE_PRIVATE);
@@ -209,6 +264,20 @@ public class EventsFragment extends Fragment {
         // Commit the edits
         editor.apply();
     }
+
+    /**
+     * Saves arraylist stored in sharedPreferences for checkbox and notification arraylists
+     * @param context
+     *          Context of the application
+     * @param array
+     *          String indicating the key value
+     * @param miniArray
+     *          String indicating the
+     * @param arrayList
+     *          ArrayList to be retrieved
+     * @return
+     *         boolean indicating true if array is saved
+     */
     public static boolean saveArray(Context context,String array,String miniArray,ArrayList<String> arrayList)
     {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
@@ -224,6 +293,20 @@ public class EventsFragment extends Fragment {
 
         return mEdit1.commit();
     }
+
+    /**
+     * Retrieves arraylist stored in sharedPreferences for checkbox and notification arraylists
+     * @param context
+     *          Context of the application
+     * @param array
+     *          String indicating the key value
+     * @param miniArray
+     *          String indicating the
+     * @param arrayList
+     *          ArrayList to be retrieved
+     * @return
+     *         ArrayList containing status of checkbox or notification click
+     */
     public static ArrayList<String> loadArray(Context context,String array,String miniArray,ArrayList<String> arrayList)
     {
         SharedPreferences mSharedPreference1 = PreferenceManager.getDefaultSharedPreferences(context);
@@ -236,11 +319,22 @@ public class EventsFragment extends Fragment {
         return arrayList;
 
     }
+
+    /**
+     * Returns size of the checkbox arraylist
+     * @return
+     *       int indicating the size of the checkbox arraylist which is the number of events
+     */
     public static int getSize()
     {
         return checked.size();
     }
 
+    /**
+     * Returns SitesAdapter
+     * @return
+     *      SitesAdapter object
+     */
     public static SitesAdapter getAdapter(){
         return mAdapter;
     }
