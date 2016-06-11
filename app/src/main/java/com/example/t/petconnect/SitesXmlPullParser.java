@@ -19,11 +19,11 @@ import android.content.Context;
  */
 public class SitesXmlPullParser {
 
-    static final String KEY_SITE = "viewentry";
-    static final String KEY_NAME = "entrydata";
-    static final String KEY_LINK = "link";
-    static final String KEY_ABOUT = "EventName";
-    static final String KEY_IMAGE_URL = "image";
+    private static final String KEY_SITE = "viewentry";
+    private static final String KEY_NAME = "entrydata";
+    private static final String KEY_LINK = "link";
+    private static final String KEY_ABOUT = "EventName";
+    private static final String KEY_IMAGE_URL = "image";
     private static int i = 0;
     private static List<StackSite> stackSites;
 
