@@ -23,7 +23,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+/**
+ * Opens login screen and allows user to authenticate by inputting credentials
+ */
 public class MainActivity extends AppCompatActivity {
+    // Declaring variables
     private Button login;
     private Button signUpPetConnect;
     private EditText username;
@@ -33,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private CloudantClient client;
     private Database db;
     private ExampleDocument doc = new ExampleDocument();
-    ActionBar actionBar;
-    View decorView;
+
     public static final String PREFS_NAME = "MyPrefsFile";
 
 
@@ -98,7 +101,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+    /**
+     * Finds document from the database and checks user inputted credentials whether
+     * they are valid and allows user to enter the app
+     */
     private class DownloadWebpageTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
@@ -182,12 +188,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Returns user index
+     * @param user
+     *         String indicating username
+     * @return
+     *      int indicating user index
+     */
     public int getUserIndex(String user)
     {
         ArrayList<String> userList = doc.getUserList();
         int index = userList.indexOf(user);
         return index;
     }
+
+    /**
+     * Returns user password according to their user index
+     * @param index
+     *      int indicating user index
+     * @return
+     *      String indicating user password
+     */
     public String getUserPass(int index) {
         ArrayList<String> pass = doc.getPassWords();
         String password;
@@ -200,6 +221,15 @@ public class MainActivity extends AppCompatActivity {
         return password;
     }
 
+    /**
+     * Checks if the input fields are empty or not
+     * @param user
+     *      String indicating username inputted by user
+     * @param pass
+     *      String indicating password inputted by user
+     * @return
+     *      Boolean indicating true if any of the input fields is empty
+     */
     public boolean checkEmpty(String user, String pass)
     {
         if(user.equals("") || pass.equals(""))
@@ -208,12 +238,32 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    /**
+     * Retrieves string value from shared preferences
+     * @param context
+     *      Context of application
+     * @param key
+     *      String indicating key
+     * @return
+     *      String stored in shared preferences
+     */
     public static String getString(Context context, String key)
     {
         SharedPreferences settings = context.getSharedPreferences(PREFS_NAME,context.MODE_PRIVATE);
         String value = settings.getString(key,"");
         return value;
     }
+
+    /**
+     * Saves string value in shared preferences
+     * @param context
+     *       Context of application
+     * @param key
+     *       String indicating key
+     * @param value
+     *      String to be stored
+     */
     private static void setString(Context context,String key,String value)
     {
         SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, context.MODE_PRIVATE);
