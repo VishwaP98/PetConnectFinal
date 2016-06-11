@@ -140,7 +140,7 @@ public class SignUpActivity extends Activity {
      *        String indicating user's inputted email
      * @return boolean indicating true if email is valid and false if not
      */
-    boolean isEmailValid(CharSequence email) {
+    public boolean isEmailValid(CharSequence email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
