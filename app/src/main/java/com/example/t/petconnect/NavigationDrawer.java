@@ -15,10 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * makes
+ * makes a navigation drawer to better organize UI and make it easy for user to 
+ * use application
  */
 public class NavigationDrawer extends AppCompatActivity {
-
     // initializes all the variables
     private ActionBar actionBar;
     private DrawerLayout DrawerLayout;
